@@ -1,0 +1,77 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>فضفضة - نموذج أولي</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#F3F1FB;--card:#fff;--ink:#25244A;--mut:#5A5978;--pri:#5B5BD6;--on:#fff;--soft:#E9E5FF;--line:#DDD8F3;--sos:#C2402E;--mint:#D5F0E6;--peach:#FFE3D6;--sky:#DCE8FF;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#16152B;--card:#211F3D;--ink:#EEEDFA;--mut:#B3B1D1;--pri:#8E8EF0;--on:#16152B;--soft:#2E2B58;--line:#3A3766;--mint:#1F3D37;--peach:#47302A;--sky:#233553}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#16152B;--card:#211F3D;--ink:#EEEDFA;--mut:#B3B1D1;--pri:#8E8EF0;--on:#16152B;--soft:#2E2B58;--line:#3A3766;--mint:#1F3D37;--peach:#47302A;--sky:#233553}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Tajawal,Tahoma,sans-serif;font-size:16px;line-height:1.7}
+button{font:700 16px Tajawal,Tahoma,sans-serif;cursor:pointer;min-height:44px;border-radius:14px;padding:10px 18px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+button.p{background:var(--pri);color:var(--on);border-color:var(--pri)}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 24px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.logo{font-size:24px;font-weight:700;color:var(--pri);margin-inline-end:auto}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button{border:0;background:none;color:var(--mut)}.tabs button.on{background:var(--soft);color:var(--ink)}
+.sos{background:var(--sos);color:#fff;border-color:var(--sos)}
+main{max-width:980px;margin:0 auto;padding:24px 20px 60px}
+section{display:none}section.on{display:block}
+.card{background:var(--card);border-radius:24px;padding:22px;box-shadow:0 6px 24px rgba(75,75,196,.08);margin-bottom:18px}
+h2,h3{margin:0 0 10px}.mut{color:var(--mut);font-size:14px}
+#log{display:flex;flex-direction:column;gap:12px;min-height:340px;max-height:52vh;overflow:auto;padding:4px}
+.b{max-width:80%;padding:12px 16px;border-radius:18px;white-space:pre-wrap}
+.bot{align-self:flex-end;background:var(--bg)}.me{align-self:flex-start;background:var(--pri);color:var(--on)}
+.alert{align-self:stretch;max-width:100%;background:var(--peach);border:2px solid var(--sos)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.in{display:flex;gap:8px;margin-top:14px}.in input{flex:1;min-width:0;font:16px Tajawal,Tahoma,sans-serif;padding:12px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);min-height:44px}
+.faces{display:flex;gap:10px;flex-wrap:wrap}.faces button{width:72px;display:grid;gap:2px;justify-items:center;padding:8px;font-size:13px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.big{font-size:32px;font-weight:700;color:var(--pri)}
+#ring{width:140px;height:140px;border-radius:50%;background:var(--soft);margin:18px auto;display:grid;place-items:center;font-weight:700;transition:transform 4s ease-in-out;text-align:center}
+pre{white-space:pre-wrap;font:inherit;background:var(--bg);border-radius:16px;padding:16px;margin:0 0 12px}
+.ban{background:var(--soft);border-radius:14px;padding:10px 14px;margin-bottom:16px}
+@media (max-width:560px){.b{max-width:92%}.top{padding:10px 14px}}
+</style></head><body>
+<div class="top"><div class="logo">فضفضة</div><nav class="tabs" aria-label="التنقل"><button data-t="chat" class="on">المحادثة</button><button data-t="mood">مزاجي</button><button data-t="ex">تمارين</button><button data-t="rep">تقرير للطبيب</button></nav><button class="sos" id="sosb">أحتاج مساعدة الآن</button></div>
+<main>
+<div class="ban mut">نموذج أولي تجريبي: الردود مبرمجة بقواعد بسيطة وليست نموذجاً لغوياً حقيقياً، وفضفضة أداة دعم وليست بديلاً عن الطبيب.</div>
+<section id="chat" class="on"><div class="card"><div id="log" aria-live="polite"></div><div class="in"><input id="inp" aria-label="اكتب رسالتك" placeholder="اكتب اللي ببالك..."><button class="p" id="send">إرسال</button></div></div></section>
+<section id="mood"><div class="card"><h2>كيف مزاجك اليوم؟</h2><div class="faces" id="faces"></div></div><div class="card"><h3>آخر ١٤ يوم</h3><div id="chart"></div><p class="mut">الأيام الأولى بيانات تجريبية، ومزاج اليوم بينضاف لما تختار.</p></div></section>
+<section id="ex"><div class="g"><div class="card" style="background:var(--mint)"><h3>تنفّس ٤-٧-٨</h3><div id="ring">جاهز؟</div><button class="p" id="bs">ابدأ</button></div><div class="card" style="background:var(--peach)"><h3>نشاط صغير لليوم</h3><p id="act">اضغط للحصول على اقتراح بسيط.</p><button id="an">اقتراح ثاني</button></div><div class="card" style="background:var(--sky)"><h3>اكتب أفكارك</h3><textarea aria-label="أفكارك" rows="6" style="width:100%;font:16px Tajawal,Tahoma,sans-serif;padding:12px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)" placeholder="هاي الكتابة بتضل عندك بالمتصفح ومش بتنحفظ."></textarea></div></div></section>
+<section id="rep"><div class="card"><h2>ملخص للطبيب</h2><p class="mut">إنت بتختار شو ينضاف، ومش بينبعت لأي جهة.</p><div class="chips"><label><input type="checkbox" id="c1" checked> نتيجة التقييم</label><label><input type="checkbox" id="c2" checked> المزاج</label><label><input type="checkbox" id="c3"> المواضيع</label></div><pre id="sum" style="margin-top:14px"></pre><button class="p" id="cp">نسخ الملخص</button> <span class="mut" id="cpm"></span></div></section>
+</main>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},log=$('#log');
+var S={n:0,topics:{},score:null,mood:[3,3,4,3,3,2,3,2,2,3,2,2,2]};
+try{var sv=JSON.parse(localStorage.getItem('fd')||'null');if(sv){S=sv}}catch(e){}
+function save(){try{localStorage.setItem('fd',JSON.stringify(S))}catch(e){}}
+function norm(t){return t.replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')}
+function add(t,c){var d=document.createElement('div');d.className='b '+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function chips(a){var d=document.createElement('div');d.className='chips';a.forEach(function(x){var b=document.createElement('button');b.textContent=x[0];b.onclick=function(){d.remove();x[1]()};d.appendChild(b)});log.appendChild(d);log.scrollTop=log.scrollHeight}
+function emergency(){var d=add('أنا قلقان عليك، وكلامك مهم عندي. إنت مش لحالك.\n\nاتصل هلأ بالطوارئ على 911 أو روح لأقرب طوارئ. وإذا في حدا قريب منك، حكيله وخليه يقعد معك.\n\n[خط دعم نفسي معتمد: يُضاف بعد التحقق من الرقم]','bot alert');d.setAttribute('role','alert')}
+var RISK=['انتحر','بدي اموت','انهي حياتي','ما بدي اعيش','اذي نفسي','ايذاء نفسي','اقتل حالي','اختفي من الدنيا','تعبت من الحياه'];
+var RULES=[[/نوم|نمت|ارق/,'نوم','قلة النوم بتتعب كل شي. جرب هالليلة تطفي الشاشات قبل النوم بنص ساعة، وإذا بدك بنجرب تمرين التنفس بتبويب "تمارين".'],[/شغل|دوام|ضغط|دراسه|جامعه/,'ضغط الشغل أو الدراسة','واضح إنه الضغط كبير عليك. شو أكثر شي بالشغل بتقل عليك؟'],[/وحيد|لحالي|ما حدا|ما في حدا/,'الشعور بالوحدة','الوحدة بتكون تقيلة. في حدا بتثق فيه ممكن تحكيله ولو برسالة قصيرة؟'],[/تعب|مخنوق|حزين|زهقان|ما الي نفس|ما إلي نفس|ما الي خلق/,'تعب وحزن','الله يعطيك العافية. كلامك مفهوم، وشكراً إنك بتحكيه. من متى وإنت حاسس هيك؟']];
+function reply(t){var x=norm(t);if(RISK.some(function(r){return x.indexOf(norm(r))>-1})){emergency();return}
+S.n++;var r=null;RULES.forEach(function(u){if(!r&&u[0].test(x)){r=u[2];S.topics[u[1]]=1}});save();
+add(r||'كمّل، أنا سامعك. شو أكثر شي واكلك هالأيام؟','bot');
+if(S.n===3){setTimeout(function(){add('شكراً إنك حكيتلي. إذا بدك، بسألك ٩ أسئلة بسيطة عشان نفهم الوضع أكثر. وإنت بتقرر.','bot');chips([['يلا نبدأ',start],['مش هلأ',function(){add('تمام، أنا هون وقت ما بدك.','bot')}]])},500)}}
+var Q=['خلال آخر أسبوعين، قديش كان صعب عليك تستمتع بالأشياء اللي كنت تحبها؟','قديش حسيت بحزن أو إحباط أو يأس؟','قديش واجهت صعوبة بالنوم، أو نمت أكثر من اللازم؟','قديش حسيت بتعب أو قلة طاقة؟','قديش تغيّرت شهيتك، قلت أو زادت؟','قديش حسيت بإحساس سيء تجاه حالك، أو إنك فاشل؟','قديش صعب عليك تركّز بالأشياء؟','قديش حسيت إنك بطيء أو متوتر بشكل ملحوظ؟','قديش خطرت ببالك أفكار إنه الأفضل تموت أو تأذي حالك؟'];
+var O=[['أبداً',0],['كم يوم',1],['أكثر من نص الأيام',2],['تقريباً كل يوم',3]];
+function start(){var i=0,sc=0;(function ask(){if(i>=9){S.score=sc;save();var m=sc<5?'نتيجتك منخفضة':sc<10?'الأعراض خفيفة':sc<15?'الأعراض متوسطة':'الأعراض ملحوظة';add(m+' ('+sc+' من ٢٧). هاي مش تشخيص، لكن '+(sc>=10?'بنصحك تحكي مع طبيب أو مختص، وفضفضة بتجهزلك ملخص بتبويب "تقرير للطبيب".':'لو استمرت بتقدر تعيد التقييم بعد أسبوعين.'),'bot');return}
+add('('+(i+1)+'/٩) '+Q[i],'bot');chips(O.map(function(o){return[o[0],function(){sc+=o[1];add(o[0],'me');if(i===8&&o[1]>0){emergency()}i++;ask()}]}))})()}
+function send(){var v=$('#inp').value.trim();if(!v)return;$('#inp').value='';add(v,'me');setTimeout(function(){reply(v)},350)}
+$('#send').onclick=send;$('#inp').onkeydown=function(e){if(e.key==='Enter')send()};
+add('هلا فيك، كيف مشي يومك اليوم؟','bot');
+$('#sosb').onclick=function(){show('chat');emergency()};
+function show(t){document.querySelectorAll('section').forEach(function(s){s.classList.toggle('on',s.id===t)});document.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.t===t)});if(t==='mood')chart();if(t==='rep')sum()}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){show(b.dataset.t)}});
+var F=[['تعبان كثير','M8 16q4-3 8 0','#FFD9C7'],['تعبان','M8 16q4-2 8 0','#FFE9C7'],['عادي','M8 15.5h8','#EDEBFA'],['منيح','M8 15q4 2.5 8 0','#D5F0E6'],['منيح كثير','M8 14.5q4 4 8 0','#BFE8D6']];
+$('#faces').innerHTML=F.map(function(f,i){return '<button data-m="'+(i+1)+'"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#25244A" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="'+f[2]+'"/><circle cx="9" cy="10" r=".6"/><circle cx="15" cy="10" r=".6"/><path d="'+f[1]+'"/></svg>'+f[0]+'</button>'}).join('');
+document.querySelectorAll('#faces button').forEach(function(b){b.onclick=function(){S.mood.push(+b.dataset.m);if(S.mood.length>14)S.mood.shift();save();chart()}});
+function chart(){var m=S.mood,w=600,h=200,p=m.map(function(v,i){return[20+i*(w-40)/Math.max(m.length-1,1),h-20-(v-1)*(h-50)/4]});var l=p.map(function(a){return a.join(',')}).join(' ');$('#chart').innerHTML='<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="رسم المزاج" style="width:100%;height:auto"><polygon fill="var(--soft)" points="'+l+' '+p[p.length-1][0]+','+(h-5)+' 20,'+(h-5)+'"/><polyline fill="none" stroke="var(--pri)" stroke-width="3.5" stroke-linejoin="round" points="'+l+'"/>'+p.map(function(a){return '<circle cx="'+a[0]+'" cy="'+a[1]+'" r="4" fill="var(--pri)"/>'}).join('')+'</svg>'}
+function sum(){var m=S.mood,avg=(m.reduce(function(a,b){return a+b},0)/m.length).toFixed(1),t=Object.keys(S.topics).join('، ')||'لا يوجد';var L=['ملخص فضفضة (تجريبي، ليس تشخيصاً)'];if($('#c1').checked)L.push('نتيجة التقييم: '+(S.score===null?'لم يُجرَ بعد':S.score+' من ٢٧'));if($('#c2').checked)L.push('متوسط المزاج: '+avg+' من ٥ خلال '+m.length+' يوماً');if($('#c3').checked)L.push('المواضيع: '+t);$('#sum').textContent=L.join('\n')}
+['c1','c2','c3'].forEach(function(i){$('#'+i).onchange=sum});
+$('#cp').onclick=function(){var t=$('#sum').textContent;try{navigator.clipboard.writeText(t).then(function(){$('#cpm').textContent='تم النسخ'},function(){$('#cpm').textContent='حدد النص وانسخه يدوياً'})}catch(e){$('#cpm').textContent='حدد النص وانسخه يدوياً'}};
+var A=['اطلع مشي ١٠ دقايق بدون موبايل.','اشرب كاسة مي واغسل وجهك.','حكي مع حدا بتحبه برسالة قصيرة.','رتّب زاوية وحدة بغرفتك.','افتح الشباك وخذ ٥ أنفاس عميقة.'],ai=0;$('#an').onclick=function(){$('#act').textContent=A[ai++%A.length]};$('#an').click();
+var bt=null;$('#bs').onclick=function(){var r=$('#ring');if(bt){clearInterval(bt);bt=null;r.textContent='جاهز؟';r.style.transform='';this.textContent='ابدأ';return}this.textContent='إيقاف';var P=[['شهيق',4,1.25],['احبس',7,1.25],['زفير',8,1]],i=0,s=0;function tick(){var p=P[i];if(s===0){r.textContent=p[0];r.style.transitionDuration=p[1]+'s';r.style.transform='scale('+p[2]+')'}s++;if(s>=p[1]){s=0;i=(i+1)%3}}tick();bt=setInterval(tick,1000)};
+})();
+</script></body></html>
